@@ -2,6 +2,8 @@ import * as api from '../api'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 export const getAllCircular =() => async(dispatch) =>{
     try {   
+
+            
             let User = await AsyncStorage.getItem('KEC')
             User = JSON.parse(User)
             const circularData ={
