@@ -8,6 +8,13 @@ import Icon  from 'react-native-vector-icons/MaterialIcons'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { deleteDeviceId } from '../../actions/auth'
 
+const Item = ({ data,navigation }) => {
+  return(
+  <View style={styles.item}>
+    <CircularCard item={data} navigation={navigation} />
+  </View>
+)
+  }
 
 const DeptCircular = ({navigation}) => {
   const [dis,setDis]=useState(false)
@@ -46,6 +53,7 @@ const DeptCircular = ({navigation}) => {
   }
   useEffect(()=>{
       if(Circulars.data!=null){
+        console.log('hii',Circulars.data)
         const data = Circulars.data
         setTodayCircular(data.todayCircular)
         setYesterdayCircular(data.yesterdayCircular)
@@ -53,7 +61,6 @@ const DeptCircular = ({navigation}) => {
         const month = data.monthwise
         let fullData=[];
         for(let i of month){
-          
           if(i.data.length){
             fullData.push(i)
           }

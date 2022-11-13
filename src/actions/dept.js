@@ -7,7 +7,8 @@ export const getdeptAllCircular =() => async(dispatch) =>{
             User = JSON.parse(User)
             const deptData ={
                 department:User?.result?.department,
-                batch:User?.result?.batch
+                batch:User?.result?.batch,
+                type:User?.result?.type
             }
             const {data}=await  api.getAllDeptCirculars(deptData)
             
